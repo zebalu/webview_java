@@ -67,7 +67,7 @@ Replace `_VERSION` with the latest version or commit in this repo. If you want t
 </repositories>
 
 <dependency>
-    <groupId>com.github.webview.webview_java</groupId>
+    <groupId>com.github.zebalu.webview_java</groupId>
     <artifactId>core</artifactId>
     <version>_VERSION</version>
 </dependency>
@@ -85,7 +85,7 @@ allprojects {
 }
 
 dependencies {
-  implementation 'com.github.webview.webview_java:core:_VERSION'
+  implementation 'com.github.zebalu.webview_java:core:_VERSION'
 }
 ```
 
@@ -97,7 +97,7 @@ dependencies {
 ```sbt
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.webview.webview_java" % "core" % "\_VERSION"
+libraryDependencies += "com.github.zebalu.webview_java" % "core" % "\_VERSION"
 ```
 
 </details>
@@ -108,7 +108,7 @@ libraryDependencies += "com.github.webview.webview_java" % "core" % "\_VERSION"
 ```lein
 :repositories [["jitpack" "https://jitpack.io"]]
 
-:dependencies [[com.github.webview.webview_java/core "_VERSION"]]
+:dependencies [[com.github.zebalu.webview_java/core "_VERSION"]]
 ```
 
 </details>
