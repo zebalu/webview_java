@@ -64,6 +64,10 @@ Replace `_VERSION` with the latest version or commit in this repo. If you want t
         <id>jitpack.io</id>
         <url>https://jitpack.io</url>
     </repository>
+    <repository>
+        <id>casterlabs.co</id>
+        <url>https://repo.casterlabs.co/maven</url>
+    </repository>
 </repositories>
 
 <dependency>
@@ -81,6 +85,7 @@ Replace `_VERSION` with the latest version or commit in this repo. If you want t
 allprojects {
   repositories {
     maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.casterlabs.co/maven'}
   }
 }
 
@@ -96,6 +101,7 @@ dependencies {
 
 ```sbt
 resolvers += "jitpack" at "https://jitpack.io"
+resolvers += "casterlabs" at "https://repo.casterlabs.co/maven"
 
 libraryDependencies += "com.github.zebalu.webview_java" % "core" % "\_VERSION"
 ```
@@ -106,7 +112,8 @@ libraryDependencies += "com.github.zebalu.webview_java" % "core" % "\_VERSION"
 <summary>Leiningen</summary>
 
 ```lein
-:repositories [["jitpack" "https://jitpack.io"]]
+:repositories [["jitpack" "https://jitpack.io"]
+               ["casterlabs" "https://repo.casterlabs.co/maven"]]
 
 :dependencies [[com.github.zebalu.webview_java/core "_VERSION"]]
 ```

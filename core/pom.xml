@@ -5,9 +5,9 @@
 	<artifactId>core</artifactId>
 
 	<parent>
-		<groupId>dev.webview.webview_java</groupId>
+		<groupId>io.github.zebalu.webview_java</groupId>
 		<artifactId>webview_java</artifactId>
-		<version>PLACEHOLDER</version>
+		<version>1.3.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
