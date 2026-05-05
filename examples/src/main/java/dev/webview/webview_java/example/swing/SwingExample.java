@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import dev.webview.webview_java.AWTWebview;
 
 /**
- * do not support resize!
+ * Resize is supported via ComponentListener in AWTWebview.
  * */
 public class SwingExample {
 

@@ -296,16 +296,26 @@ public class Webview implements Closeable, Runnable {
         N.webview_unbind($pointer, name);
     }
 
+    // JNA callback objects are tracked via WeakReference internally; if the lambda has no
+    // strong reference it can be GC'd before the webview thread invokes it.
+    // This queue keeps them alive until the callback actually runs.
+    private final java.util.concurrent.ConcurrentLinkedQueue<WebviewNative.DispatchCallback> _dispatchRefs =
+        new java.util.concurrent.ConcurrentLinkedQueue<>();
+
     /**
      * Executes an event on the event thread.
-     * 
+     *
      * @deprecated Use this only if you absolutely know what you're doing.
      */
     @Deprecated
     public void dispatch(@NonNull Runnable handler) {
-        N.webview_dispatch($pointer, ($pointer, arg) -> {
+        WebviewNative.DispatchCallback[] holder = new WebviewNative.DispatchCallback[1];
+        holder[0] = ($pointer, arg) -> {
+            _dispatchRefs.remove(holder[0]);
             handler.run();
-        }, 0);
+        };
+        _dispatchRefs.add(holder[0]);
+        N.webview_dispatch($pointer, holder[0], 0);
     }
 
     /**

@@ -289,6 +289,19 @@ interface WebviewNative extends Library {
      */
     VersionInfoStruct webview_version();
 
+    static final int WEBVIEW_NATIVE_HANDLE_KIND_UI_WINDOW = 0;
+    static final int WEBVIEW_NATIVE_HANDLE_KIND_UI_WIDGET = 1;
+    static final int WEBVIEW_NATIVE_HANDLE_KIND_BROWSER_CONTROLLER = 2;
+
+    /**
+     * Returns a native handle of the specified kind (window, widget, or browser controller).
+     * Added in webview 0.11.0.
+     *
+     * @param $pointer The instance pointer of the webview
+     * @param kind     One of the WEBVIEW_NATIVE_HANDLE_KIND_* constants
+     */
+    com.sun.jna.Pointer webview_get_native_handle(long $pointer, int kind);
+
     static class VersionInfoStruct extends Structure {
         public int major; // This is technically in a sub-struct.
         public int minor; // This is technically in a sub-struct.
